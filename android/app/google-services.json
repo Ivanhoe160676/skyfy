@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "854667580923",
+    "project_id": "skyfy-83dd4",
+    "storage_bucket": "skyfy-83dd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854667580923:android:93b6a1a26179596e2f275e",
+        "android_client_info": {
+          "package_name": "com.skyfy.skyfy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854667580923-kbkokqmqv3rbd6v47r2vf2mgv4s8n17a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skyfy.skyfy",
+            "certificate_hash": "bfeaf5605c4b502dbf00337f05e91a49634dd651"
+          }
+        },
+        {
+          "client_id": "854667580923-v34dlpoob7pilqfc9tomc7i49trc32qa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrn-7WFw4f1Mkwl9v_e8R8qO1RrFNAtEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854667580923-v34dlpoob7pilqfc9tomc7i49trc32qa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "854667580923-i7v6cuh4ug7mm0nhsf11si0f7uos5s0l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tech.dev-studio.skyfy"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854667580923:android:02a98cf781e3aa7d2f275e",
+        "android_client_info": {
+          "package_name": "tech.devstudio.skyfy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854667580923-arhj94q8u9tq9mg5poqt069o2c4hg1eo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.devstudio.skyfy",
+            "certificate_hash": "bfeaf5605c4b502dbf00337f05e91a49634dd651"
+          }
+        },
+        {
+          "client_id": "854667580923-v34dlpoob7pilqfc9tomc7i49trc32qa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrn-7WFw4f1Mkwl9v_e8R8qO1RrFNAtEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854667580923-v34dlpoob7pilqfc9tomc7i49trc32qa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "854667580923-i7v6cuh4ug7mm0nhsf11si0f7uos5s0l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tech.dev-studio.skyfy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
