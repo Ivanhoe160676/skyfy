@@ -4,7 +4,6 @@ import 'package:skyfy/inject_dependencies.dart';
 import 'package:skyfy/src/locale/languages.dart';
 import 'package:skyfy/src/tools/airport_data_reader.dart';
 import 'package:skyfy/src/tools/search/airport_lookup.dart';
-
 import 'firebase_options.dart';
 import 'package:skyfy/src/skyfy.dart';
 import 'src/store/app_store.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart' show BuildContext, Widget;
-import 'package:skyfy/src/tools/search/airport_lookup.dart';
 import 'package:skyfy/src/ui/screens/dashboard/dashboard_screen.dart';
 import 'package:skyfy/src/ui/screens/home/home_screen.dart';
 import 'package:skyfy/src/ui/screens/login/login_screen.dart';
@@ -15,9 +14,6 @@ Map<String, Widget Function(BuildContext context)> get appRoutes => {
       Routes.register: (_) => const RegisterScreen(),
       Routes.resetPassword: (_) => const ResetPasswordScreen(),
       Routes.dashboard: (_) => const DashboardScreen(),
-      Routes.skyfybnb: (_) => SkyFyBottomNavigation(
-            airportLookup: AirportLookup(airports: [AirportLookup]),
-          ),
-      Routes.home: (_) =>
-          HomeScreen(airportLookup: AirportLookup(airports: [AirportLookup])),
+      Routes.skyfybnb: (_) => const SkyFyBottomNavigation(),
+      Routes.home: (_) => const HomeScreen()
     };

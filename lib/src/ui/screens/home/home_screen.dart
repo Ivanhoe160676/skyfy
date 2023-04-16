@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:skyfy/src/data/providers/airport_lookup_provider.dart';
 import 'package:skyfy/src/data/services/flight_details_bloc.dart';
-import 'package:skyfy/src/tools/search/airport_lookup.dart';
 import 'package:skyfy/src/ui/screens/home/widgets/card_swiper.dart';
 import 'package:skyfy/src/ui/screens/home/widgets/class_selector.dart';
 import 'package:skyfy/src/ui/screens/home/widgets/date_selector.dart';
@@ -16,8 +16,7 @@ import 'package:skyfy/src/ui/screens/home/widgets/travelers_selector.dart';
 import 'package:skyfy/src/ui/utils/palette.dart';
 
 class HomeScreen extends StatefulWidget {
-  final AirportLookup airportLookup;
-  const HomeScreen({Key? key, required this.airportLookup}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -173,7 +172,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       children: <Widget>[
                         FlightDetailsCard(
-                          airportLookup: widget.airportLookup,
+                          airportLookup:
+                              Provider.of<AirportLookupProvider>(context)
+                                  .getAirportLookup(),
                           flightDetails: snapshot.data!.details,
                           flightDetailsBloc: flightDetailsBloc,
                         ),
@@ -199,7 +200,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             Visibility(
                                 visible: _isMulticityVisible,
                                 child: AddLeg(
-                                  airportLookup: widget.airportLookup,
+                                  airportLookup:
+                                      Provider.of<AirportLookupProvider>(
+                                              context)
+                                          .getAirportLookup(),
                                   flightDetails: snapshot.data!.details,
                                   flightDetailsBloc: flightDetailsBloc,
                                 )),

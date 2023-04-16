@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:skyfy/src/tools/bnb/images.dart';
 import 'package:skyfy/src/tools/bnb/strings.dart';
-import 'package:skyfy/src/tools/search/airport_lookup.dart';
 import 'package:skyfy/src/ui/screens/about/about_screen.dart';
 import 'package:skyfy/src/ui/screens/emptylegs/emptylegs_screen.dart';
 import 'package:skyfy/src/ui/screens/home/home_screen.dart';
@@ -17,10 +16,9 @@ import 'package:skyfy/src/ui/screens/skyfybnb/widgets/constant.dart';
 import 'package:skyfy/src/ui/utils/palette.dart';
 
 class SkyFyBottomNavigation extends StatefulWidget {
-  final AirportLookup airportLookup;
   static String tag = '/SkyFyBottomNavigation';
 
-  const SkyFyBottomNavigation({super.key, required this.airportLookup});
+  const SkyFyBottomNavigation({super.key});
 
   @override
   SkyFyBottomNavigationState createState() => SkyFyBottomNavigationState();
@@ -28,9 +26,7 @@ class SkyFyBottomNavigation extends StatefulWidget {
 
 class SkyFyBottomNavigationState extends State<SkyFyBottomNavigation> {
   final screens = [
-    HomeScreen(
-      airportLookup: AirportLookup(airports: []),
-    ),
+    const HomeScreen(),
     const EmptyLegsScreen(),
     const AboutScreen(),
     const ProfileScreen(),
