@@ -25,6 +25,7 @@ const skyFyEmptyLegs = "E Legs";
 const skyFySettings = "Settings";
 const profile = "Profile";
 const t6LblSleep = "sleep";
+const myFlightsS = "Flights";
 const t6LblBottomNavigation = "Bottom Navigation";
 const t6LblWelcomeToBottomNNavigationBar = "Welcome to Bottom Navigation Bar";
 const t6LblCards = "Cards";

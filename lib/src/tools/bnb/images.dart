@@ -10,6 +10,7 @@ const t6IcLogo = "$baseUrl/images/bnb/t6_ic_logo.png";
 const t6IcProfile = "$baseUrl/images/bnb/t6_ic_profile.jpg";
 const t6IcRunning = "assets/images/bnb/t6_ic_running.svg";
 const t6IcSleep = "assets/images/bnb/t6_ic_sleep.svg";
+const myFlights = "assets/images/bnb/myFlights.svg";
 const t6IcSwim = "assets/images/bnb/t6_ic_swim.svg";
 const t6IcWalk = "assets/images/bnb/t6_ic_walk.svg";
 const t6IcWalk1 = "$baseUrl/images/bnb/t6_ic_walk1.png";

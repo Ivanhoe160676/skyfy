@@ -111,7 +111,7 @@ class SkyFyBottomNavigationState extends State<SkyFyBottomNavigation> {
                   ),
                   Flexible(
                     flex: 1,
-                    child: tabItem(2, t6IcSleep, t6LblSleep),
+                    child: tabItem(2, myFlights, myFlightsS),
                   ),
                   Flexible(
                     flex: 1,
