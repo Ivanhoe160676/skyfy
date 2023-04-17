@@ -9,6 +9,7 @@ class Aircraft {
     required this.year,
     required this.picture,
     required this.company,
+    required this.status,
     required this.passengerCapacity,
     required this.hours,
   });
@@ -20,6 +21,7 @@ class Aircraft {
   String year;
   String picture;
   String company;
+  String status;
   String passengerCapacity;
   String hours;
 
@@ -36,6 +38,7 @@ class Aircraft {
         year: json["year"],
         picture: json["picture"],
         company: json["company"],
+        status: json["status"],
         passengerCapacity: json["Passenger capacity"],
         hours: json["hours"],
       );
@@ -48,6 +51,7 @@ class Aircraft {
         "year": year,
         "picture": picture,
         "company": company,
+        "status": status,
         "Passenger capacity": passengerCapacity,
         "hours": hours,
       };

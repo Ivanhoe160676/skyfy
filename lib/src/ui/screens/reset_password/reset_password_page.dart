@@ -10,6 +10,7 @@ import 'package:skyfy/src/ui/global/widgets/dialogs/dialogs.dart';
 import 'package:skyfy/src/ui/global/widgets/dialogs/progress_dialog.dart';
 import 'package:skyfy/src/ui/global/widgets/rounded_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:skyfy/src/ui/utils/ui.dart';
 import 'controller/reset_password_controller.dart';
 
 final resetPasswordProvider = SimpleProvider(
@@ -21,76 +22,94 @@ class ResetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = context.isDarkMode;
     final padding = context.mediaQueryPadding;
     final height = context.height - padding.top - padding.bottom;
     return ProviderListener<ResetPasswordController>(
       provider: resetPasswordProvider,
-      builder: (_, controller) => Scaffold(
-        appBar: AppBar(),
-        body: ListView(
-          children: [
-            SizedBox(
-              height: height,
-              child: GestureDetector(
-                onTap: () => FocusScope.of(context).unfocus(),
-                child: Container(
-                  padding: const EdgeInsets.all(15),
-                  width: double.infinity,
-                  color: Colors.transparent,
-                  child: Align(
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(
-                        maxWidth: 360,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AspectRatio(
-                            aspectRatio: 16 / 9,
-                            child: SvgPicture.asset(
-                              'assets/images/${isDarkMode ? 'dark' : 'light'}/forgot_password.svg',
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          const Center(
-                            child: Text(
-                              "Reset Password",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
+      builder: (_, controller) => Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(begin: Alignment.centerLeft, colors: <Color>[
+            Color(0xff5352fa),
+            Color(0xff1b1c1c),
+          ]),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
+          body: ListView(
+            children: [
+              SizedBox(
+                height: height,
+                child: GestureDetector(
+                  onTap: () => FocusScope.of(context).unfocus(),
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    width: double.infinity,
+                    color: Colors.transparent,
+                    child: Align(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          maxWidth: 360,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: SvgPicture.asset(
+                                'assets/images/dark/forgot_password.svg',
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 20),
-                          CustomInputField(
-                            label: "Email",
-                            onChanged: controller.onEmailChanged,
-                            inputType: TextInputType.emailAddress,
-                          ),
-                          const SizedBox(height: 5),
-                          const Text(
-                            "Enter your email to recive a link to change your password",
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            width: double.infinity,
-                            child: RoundedButton(
-                              onPressed: () => _submit(context),
-                              text: "Send",
+                            const SizedBox(height: 10),
+                            Center(
+                              child: Text(
+                                "Reset Password",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    color: Palette.lightSkyfy),
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 30),
-                        ],
+                            const SizedBox(height: 20),
+                            CustomInputField(
+                              label: "Email",
+                              onChanged: controller.onEmailChanged,
+                              inputType: TextInputType.emailAddress,
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              "Enter your email to recive a link to change your password",
+                              style: TextStyle(
+                                color: Palette.lightSkyfy,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            SizedBox(
+                              width: double.infinity,
+                              child: RoundedButton(
+                                  backgroundColor: Palette.lightSkyfy,
+                                  onPressed: () => _submit(context),
+                                  text: "Send",
+                                  textStyle:
+                                      TextStyle(color: Palette.darkSkyfy)),
+                            ),
+                            const SizedBox(height: 30),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

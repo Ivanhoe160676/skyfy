@@ -1,6 +1,8 @@
 import 'package:nb_utils/nb_utils.dart';
 import 'package:skyfy/src/domain/models/models.dart';
 import 'package:skyfy/src/ui/screens/about/about_screen.dart';
+import 'package:skyfy/src/ui/screens/aircrafts/aircraft_creen.dart';
+import 'package:skyfy/src/ui/screens/companies/companies.dart';
 import 'package:skyfy/src/ui/screens/contact/contact_us_screen.dart';
 import 'package:skyfy/src/ui/screens/faq/faq_screen.dart';
 import 'package:skyfy/src/ui/screens/home/home2.dart';
@@ -14,8 +16,10 @@ List<ListModel> getDrawerItems() {
   List<ListModel> drawerItems = [];
 
   drawerItems.add(ListModel(name: 'Admins', widget: const HomeScreen2()));
-  drawerItems.add(ListModel(name: 'Companies', widget: const HomeScreen2()));
-  drawerItems.add(ListModel(name: 'Aircrafts', widget: const HomeScreen2()));
+  drawerItems
+      .add(ListModel(name: 'Companies', widget: const CompaniesScreen()));
+  drawerItems
+      .add(ListModel(name: 'Aircrafts', widget: const AircraftsScreen()));
   drawerItems.add(ListModel(name: 'Pilots', widget: const HomeScreen2()));
   drawerItems
       .add(ListModel(name: 'Profile', widget: const ProfileScreenClient()));

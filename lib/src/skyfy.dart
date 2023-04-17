@@ -19,10 +19,9 @@ class SkyFy extends StatelessWidget {
           create: (context) => FlightDetailsBloc(),
           dispose: (context, bloc) => bloc.dispose(),
         ),
-        Provider<AirportLookupProvider>(
+        ChangeNotifierProvider<AirportLookupProvider>(
           create: (context) =>
               AirportLookupProvider(airportLookup: airportLookup),
-          dispose: (context, provider) => provider.dispose(),
         ),
       ],
       child: MaterialApp(

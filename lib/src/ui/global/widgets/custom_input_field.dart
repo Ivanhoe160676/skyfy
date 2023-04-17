@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:skyfy/src/ui/utils/ui.dart';
 
 class CustomInputField extends StatefulWidget {
   final void Function(String)? onChanged;
@@ -45,7 +46,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
               data: ThemeData(
                   primaryColor: Colors.white, primaryColorDark: Colors.amber),
               child: TextField(
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: Palette.lightSkyfy),
                 obscureText: _obscureText,
                 keyboardType: widget.inputType,
                 onChanged: (text) {
