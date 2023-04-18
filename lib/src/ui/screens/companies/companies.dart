@@ -147,6 +147,10 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
     await addCompanies(
         nameController.text, rucController.text, addressController.text);
     Navigator.of(context).pop();
+    if (nameController.text.isEmpty) {
+      print('There´s nothing to save');
+      return;
+    }
     setState(() {});
   }
 }

@@ -15,21 +15,29 @@ class AircraftsScreen extends StatefulWidget {
   @override
   State<AircraftsScreen> createState() => _AircraftsScreenState();
 
-  Widget cardAircrafts({required name, address}) {
+  Widget cardAircrafts(
+      {required name,
+      brand,
+      model,
+      register,
+      year,
+      company,
+      hours,
+      capacity,
+      status,
+      picture}) {
     return Column(
       children: [
         Row(
           children: [
-            const Expanded(
+            Expanded(
               flex: 1,
               child: FittedBox(
                 fit: BoxFit.fill,
                 child: Card(
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(16))),
-                    child: Image(
-                        image:
-                            AssetImage('assets/images/aircrafts/cirrus.jpg'))),
+                    child: Image(image: NetworkImage(picture))),
               ),
             ),
             Expanded(
@@ -49,7 +57,7 @@ class AircraftsScreen extends StatefulWidget {
                         padding:
                             const EdgeInsets.only(left: 16, right: 16, top: 8),
                         child: Text(
-                          'lipsum.createWord(numWords: 9)',
+                          name,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: primaryTextStyle(
@@ -70,7 +78,7 @@ class AircraftsScreen extends StatefulWidget {
                                   style: secondaryTextStyle(
                                       color: appStore.textSecondaryColor),
                                 ),
-                                Text('Cyrrus',
+                                Text(brand,
                                     style: secondaryTextStyle(
                                         color: appStore.textSecondaryColor))
                               ],
@@ -83,7 +91,7 @@ class AircraftsScreen extends StatefulWidget {
                                   style: secondaryTextStyle(
                                       color: appStore.textSecondaryColor),
                                 ),
-                                Text('Cyrrus',
+                                Text(model,
                                     style: secondaryTextStyle(
                                         color: appStore.textSecondaryColor))
                               ],
@@ -96,7 +104,7 @@ class AircraftsScreen extends StatefulWidget {
                                   style: secondaryTextStyle(
                                       color: appStore.textSecondaryColor),
                                 ),
-                                Text('Cyrrus',
+                                Text(register,
                                     style: secondaryTextStyle(
                                         color: appStore.textSecondaryColor))
                               ],
@@ -109,7 +117,7 @@ class AircraftsScreen extends StatefulWidget {
                                   style: secondaryTextStyle(
                                       color: appStore.textSecondaryColor),
                                 ),
-                                Text('Cyrrus',
+                                Text(year,
                                     style: secondaryTextStyle(
                                         color: appStore.textSecondaryColor))
                               ],
@@ -122,7 +130,7 @@ class AircraftsScreen extends StatefulWidget {
                                   style: secondaryTextStyle(
                                       color: appStore.textSecondaryColor),
                                 ),
-                                Text('Cyrrus',
+                                Text(company,
                                     style: secondaryTextStyle(
                                         color: appStore.textSecondaryColor))
                               ],
@@ -135,7 +143,7 @@ class AircraftsScreen extends StatefulWidget {
                                   style: secondaryTextStyle(
                                       color: appStore.textSecondaryColor),
                                 ),
-                                Text('Cyrrus',
+                                Text(hours,
                                     style: secondaryTextStyle(
                                         color: appStore.textSecondaryColor))
                               ],
@@ -148,7 +156,20 @@ class AircraftsScreen extends StatefulWidget {
                                   style: secondaryTextStyle(
                                       color: appStore.textSecondaryColor),
                                 ),
-                                Text('Cyrrus',
+                                Text(capacity,
+                                    style: secondaryTextStyle(
+                                        color: appStore.textSecondaryColor))
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  'Status:',
+                                  style: secondaryTextStyle(
+                                      color: appStore.textSecondaryColor),
+                                ),
+                                Text(status,
                                     style: secondaryTextStyle(
                                         color: appStore.textSecondaryColor))
                               ],
@@ -204,7 +225,18 @@ class _AircraftsScreenState extends State<AircraftsScreen> {
                             itemBuilder: (context, index) {
                               return widget.cardAircrafts(
                                 name: snapshot.data?[index]['name'],
-                                address: snapshot.data?[index]['address'],
+                                brand: snapshot.data?[index]['brand'],
+                                model: snapshot.data?[index]['model'],
+                                register: snapshot.data?[index]['register'],
+                                picture: snapshot.data?[index]['picture'] ??
+                                    const AssetImage(
+                                        'assets/images/aircrafts/c172.jpg'),
+                                year: snapshot.data?[index]['year'],
+                                company: snapshot.data?[index]['company'],
+                                hours: snapshot.data?[index]['hours'],
+                                status: snapshot.data?[index]['status'],
+                                capacity: snapshot.data?[index]
+                                    ['passengerCapacity'],
                               );
                               //Text(snapshot.data?[index]['name']);
                             });
@@ -215,17 +247,6 @@ class _AircraftsScreenState extends State<AircraftsScreen> {
                       }
                     }),
               ),
-              Expanded(
-                  child: ListView.builder(
-                      padding: EdgeInsets.zero,
-                      itemCount: 3,
-                      itemBuilder: (context, index) {
-                        return widget.cardAircrafts(
-                          name: 'Test',
-                          address: 'Test',
-                        );
-                        //Text(snapshot.data?[index]['name']);
-                      }))
             ],
           ),
           //!Button Add

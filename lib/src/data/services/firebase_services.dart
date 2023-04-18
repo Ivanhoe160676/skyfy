@@ -46,24 +46,24 @@ Future<List> getAircrafts() async {
 }
 
 Future<void> addAircrafts(
+    String name,
     String brand,
     String model,
     String register,
     String year,
-    String picture,
     String company,
-    String status,
+    String hours,
     String passengerCapacity,
-    String hours) async {
+    String status) async {
   await skyfyDB.collection('Aircrafts').add({
+    "name": name,
     "brand": brand,
     "model": model,
     "register": register,
     "year": year,
-    "picture": picture,
     "company": company,
-    "status": status,
+    "hours": hours,
     "passengerCapacity": passengerCapacity,
-    "hours": hours
+    "status": status,
   });
 }

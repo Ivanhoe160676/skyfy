@@ -6,6 +6,7 @@ import 'package:skyfy/src/data/services/flight_details_bloc.dart';
 import 'package:skyfy/src/tools/search/airport_lookup.dart';
 import 'package:skyfy/src/ui/routes/app_routes.dart';
 import 'package:skyfy/src/ui/routes/routes.dart';
+import 'package:skyfy/src/ui/utils/palette.dart';
 
 class SkyFy extends StatelessWidget {
   final AirportLookup airportLookup;
@@ -25,6 +26,8 @@ class SkyFy extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        theme: ThemeData.light().copyWith(
+            appBarTheme: AppBarTheme(elevation: 0, color: Palette.blueSkyFy)),
         title: 'SkyFy',
         debugShowCheckedModeBanner: false,
         navigatorKey: router.navigatorKey,

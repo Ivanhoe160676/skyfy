@@ -34,6 +34,7 @@ dependencies:
   cloud_firestore: ^4.5.0
   crypto: ^3.0.2
   cupertino_icons: ^1.0.2
+  dropdown_formfield: ^0.1.4
   firebase_auth: ^4.4.0
   firebase_core: ^2.9.0
   flutter:
@@ -53,6 +54,7 @@ dependencies:
   google_maps_flutter: ^2.2.5
   google_sign_in: ^6.1.0
   http: ^0.13.5
+  image_picker: ^0.8.7+3
   intl: ^0.17.0
   jwt_decoder: ^2.0.1
   mobx: ^2.1.4

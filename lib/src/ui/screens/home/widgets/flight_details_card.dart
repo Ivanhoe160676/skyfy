@@ -134,7 +134,7 @@ class AirportWidgetState extends State<AirportWidget> {
         },
         child: SizedBox(
             width: MediaQuery.of(context).size.width *
-                0.45, // establece el ancho del nuevo widget
+                0.44, // establece el ancho del nuevo widget
             height: _isAirportSelected
                 ? 80
                 : 40, // establece la altura del nuevo widget
@@ -142,7 +142,7 @@ class AirportWidgetState extends State<AirportWidget> {
               visible:
                   _isAirportSelected, // establece la visibilidad del widget inicial
               replacement: Container(
-                width: MediaQuery.of(context).size.width * 0.45,
+                width: MediaQuery.of(context).size.width * 0.44,
                 decoration: BoxDecoration(color: Colors.grey[350]),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 17.0),

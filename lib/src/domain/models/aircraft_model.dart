@@ -7,7 +7,7 @@ class Aircraft {
     required this.model,
     required this.register,
     required this.year,
-    required this.picture,
+    this.picture,
     required this.company,
     required this.status,
     required this.passengerCapacity,
@@ -19,7 +19,7 @@ class Aircraft {
   String model;
   String register;
   String year;
-  String picture;
+  String? picture;
   String company;
   String status;
   String passengerCapacity;
