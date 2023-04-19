@@ -18,4 +18,6 @@ abstract class Routes {
   static const dashboard = '/dashboard';
 
   static const addAircraft = '/addAircraft';
+
+  static const searchFlight = '/searchFlight';
 }

@@ -5,49 +5,66 @@ class Pilot {
     required this.id,
     required this.username,
     required this.email,
-    required this.password,
+    required this.status,
+    required this.company,
     required this.imagePath,
     required this.role,
-    required this.license,
-    required this.rate,
     required this.hours,
   });
 
-  String id;
-  String username;
-  String email;
-  String password;
-  String imagePath;
-  String role;
-  String license;
-  String rate;
-  String hours;
+  final String id;
+  final String username;
+  final String email;
+  final String status;
+  final String company;
+  final String imagePath;
+  final String role;
+  final String hours;
 
-  factory Pilot.fromRawJson(String str) => Pilot.fromJson(json.decode(str));
+  Pilot copyWith({
+    required String id,
+    required String username,
+    required String email,
+    required String status,
+    required String company,
+    required String imagePath,
+    required String role,
+    required String hours,
+  }) =>
+      Pilot(
+        id: id,
+        username: username,
+        email: email,
+        status: status,
+        company: company,
+        imagePath: imagePath,
+        role: role,
+        hours: hours,
+      );
 
-  String toRawJson() => json.encode(toJson());
+  factory Pilot.fromJson(String str) => Pilot.fromMap(json.decode(str));
 
-  factory Pilot.fromJson(Map<String, dynamic> json) => Pilot(
+  String toJson() => json.encode(toMap());
+
+  factory Pilot.fromMap(Map<String, dynamic> json) => Pilot(
         id: json["id"],
         username: json["username"],
         email: json["email"],
-        password: json["password"],
+        status: json["status"],
+        company: json["company"],
         imagePath: json["imagePath"],
         role: json["role"],
-        license: json["license"],
-        rate: json["rate"],
         hours: json["hours"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "id": id,
         "username": username,
         "email": email,
-        "password": password,
+        "status": status,
+        "company": company,
         "imagePath": imagePath,
         "role": role,
-        "license": license,
-        "rate": rate,
         "hours": hours,
       };
 }

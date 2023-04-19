@@ -40,6 +40,7 @@ class Strings {
   static const String settings = "SETTINGS";
   static const String companies = "COMPANIES";
   static const String aircrafts = "AIRCRAFTS";
+  static const String pilots = "PILOTS";
   static const String notificationSettings = "Notification settings";
   static const String changePassword = "Change Password";
   static const String creditCard = "Payments";

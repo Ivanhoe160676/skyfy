@@ -30,7 +30,7 @@ class _AddAircraftScreenState extends State<AddAircraftScreen> {
     TextEditingController statusController =
         TextEditingController(text: "online");
     bool isActiveColorSwitch = true;
-    String selectedCompany = '';
+    //String selectedCompany = '';
 
     return Scaffold(
         appBar: AppBar(

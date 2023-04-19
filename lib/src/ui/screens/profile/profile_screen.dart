@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:skyfy/src/ui/global/widgets/attendshared/app_colors.dart';
@@ -97,6 +97,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     ResponsiveFlutter.of(context)
                                         .moderateScale(25),
                                   ), // Creates border
+
                                   color: Palette.blueSkyFy,
                                 ),
                                 onTap: (value) {

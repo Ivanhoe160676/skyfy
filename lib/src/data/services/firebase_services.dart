@@ -67,3 +67,40 @@ Future<void> addAircrafts(
     "status": status,
   });
 }
+
+//!Pilots Section
+
+Future<List> getPilots() async {
+  List pilots = [];
+  CollectionReference collectionReferencePilots = skyfyDB.collection('Pilots');
+  QuerySnapshot queryPilots = await collectionReferencePilots.get();
+  for (var doc in queryPilots.docs) {
+    pilots.add(doc.data());
+  }
+  return pilots;
+}
+
+Future<void> addPilots(
+    String id,
+    String name,
+    String username,
+    String email,
+    String license,
+    String imagePath,
+    String role,
+    String company,
+    String hours,
+    String status) async {
+  await skyfyDB.collection('Pilots').add({
+    "id": id,
+    "name": name,
+    "username": username,
+    "email": email,
+    "license": license,
+    "imagePath": imagePath,
+    "role": role,
+    "company": company,
+    "hours": hours,
+    "status": status,
+  });
+}

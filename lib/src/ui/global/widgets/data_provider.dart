@@ -7,6 +7,7 @@ import 'package:skyfy/src/ui/screens/contact/contact_us_screen.dart';
 import 'package:skyfy/src/ui/screens/faq/faq_screen.dart';
 import 'package:skyfy/src/ui/screens/home/home2.dart';
 import 'package:skyfy/src/ui/screens/payment/payment_screen.dart';
+import 'package:skyfy/src/ui/screens/pilots/pilots_screen.dart';
 import 'package:skyfy/src/ui/screens/profile/profile_screen_client.dart';
 import 'package:skyfy/src/ui/screens/reviews/review_screen.dart';
 import 'package:skyfy/src/ui/screens/security/forgot_pwd_screen.dart';
@@ -20,7 +21,7 @@ List<ListModel> getDrawerItems() {
       .add(ListModel(name: 'Companies', widget: const CompaniesScreen()));
   drawerItems
       .add(ListModel(name: 'Aircrafts', widget: const AircraftsScreen()));
-  drawerItems.add(ListModel(name: 'Pilots', widget: const HomeScreen2()));
+  drawerItems.add(ListModel(name: 'Pilots', widget: const PilotsScreen()));
   drawerItems
       .add(ListModel(name: 'Profile', widget: const ProfileScreenClient()));
   drawerItems.add(ListModel(name: 'Payment', widget: const PaymentScreen()));

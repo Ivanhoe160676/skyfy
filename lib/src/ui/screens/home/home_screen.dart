@@ -1,7 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
+import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:skyfy/src/data/providers/airport_lookup_provider.dart';
 import 'package:skyfy/src/data/services/flight_details_bloc.dart';
@@ -31,9 +32,27 @@ Map<TripType, String> _tripTypes = {
 };
 
 class _HomeScreenState extends State<HomeScreen> {
+  String aircraftImageUrl = '';
+  String aircraftName = '';
+  String aircraftModel = '';
+  String aircraftCapacity = '';
   TripType _selectedTrip = TripType.oneway;
   bool _isReturnVisible = false;
   bool _isMulticityVisible = false;
+
+  Future<void> getRandomAircraftData() async {
+    final random = Random();
+    final querySnapshot =
+        await FirebaseFirestore.instance.collection('Aircrafts').get();
+    final randomIndex = random.nextInt(querySnapshot.docs.length);
+    final aircraftData = querySnapshot.docs[randomIndex].data();
+    setState(() {
+      aircraftImageUrl = aircraftData['picture'];
+      aircraftName = aircraftData['name'];
+      aircraftModel = aircraftData['model'];
+      aircraftCapacity = aircraftData['passengerCapacity'];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -250,27 +269,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           shape: const CircleBorder(),
                           clipBehavior: Clip.antiAlias,
                           elevation: 10,
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.of(context).pushNamed('/dashboard');
-                            },
-                            splashColor: Colors.orange,
-                            child: Container(
-                              width: 80,
-                              height: 80,
-                              alignment: Alignment.center,
-                              child: Text(
-                                'SEARCH',
-                                style: GoogleFonts.overpass(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14),
-                              ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Palette.blueSkyFy,
+                              shape: const CircleBorder(),
+                              padding: const EdgeInsets.all(20),
                             ),
+                            onPressed: getRandomAircraftData,
+                            child: const Text('Search'),
                           ),
                         ),
                       ),
                     ],
+                  ),
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20),
+                        FlightSearchResult(
+                          aircraftImageUrl: aircraftImageUrl,
+                          aircraftName: aircraftName,
+                          aircraftModel: aircraftModel,
+                          aircraftCapacity: aircraftCapacity,
+                        )
+                      ],
+                    ),
                   ),
                   // const AircraftPictureCard(),
                 ],
@@ -279,4 +303,59 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         });
   }
+}
+
+class FlightSearchResult extends StatelessWidget {
+  const FlightSearchResult({
+    Key? key,
+    required this.aircraftImageUrl,
+    required this.aircraftName,
+    required this.aircraftModel,
+    required this.aircraftCapacity,
+  }) : super(key: key);
+
+  final String aircraftImageUrl;
+  final String aircraftName;
+  final String aircraftModel;
+  final String aircraftCapacity;
+
+  @override
+  Widget build(BuildContext context) {
+    return searchResults(context);
+  }
+
+  Center searchResults(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          aircraftImageUrl.isNotEmpty
+              ? GestureDetector(
+                  onTap: () {
+                    createReservation();
+                  },
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.network(aircraftImageUrl, height: 150)),
+                )
+              : const SizedBox(),
+          const SizedBox(height: 10),
+          Text(
+            'Name: $aircraftName',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          Text(
+            'Model: $aircraftModel',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          Text(
+            'Capacity: $aircraftCapacity',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+        ],
+      ),
+    );
+  }
+
+  void createReservation() {}
 }
